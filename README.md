@@ -37,6 +37,8 @@ Traditional fault detection methods require seismic interpreters to manually tra
 
 
 #An example of a seismic image
+
+
 The convolutional neural network (CNN) is a widely used deep neural network (DNN) that has shown great effectiveness in various tasks. However, training a CNN properly requires a large number of processed and labeled samples, often numbering in the thousands or even millions. Since acquiring seismic data is highly costly, smaller companies in the industry typically lack access to such extensive datasets. Addressing this limitation is critical, as it directly influences the cost of exploration. In this study, we propose a strategy that leverages synthetic data alongside a small set of real data to train a CNN built on the U-Net architecture for automatic fault detection. In practical scenarios, this approach would mean that a seismic interpreter only needs to provide a few labeled samples for training the network, after which the model can automatically identify and label the remaining faults in the dataset.
 
 
@@ -58,11 +60,17 @@ This study's data is in the SEG-Y format, which is the industry standard for sei
 
 #Training Data
 
+For data set: https://nextcloud.drgaff.net/index.php/s/7mXn8mSbjxdZyr8#
+
 
 For this study, we will use two volumes of data: a seismic cube and a fault cube, with the seismic cube serving as training data and the fault cube serving as label data. The fault data consists of a series of manually mapped surfaces with values between 0 and 1. The image on the left shows a 2D seismic display in the inline direction, while the image on the right shows the same display with faults overlaid.
 #Result
 The images below were gathered at random at three different epochs. In Epoch 4, the model is already beginning to detect faults, and by Epoch 19, it has successfully mapped the fault.
+
+
 ![192174915-0ec035d8-4d7d-431e-8504-0407295a1727](https://github.com/user-attachments/assets/1d4cc936-b486-4c69-b224-d8ea23235bf5)
+
+
 When we look at the model performance, we can see that the loss function drops dramatically within the first 5 epochs and then stabilizes around the 15th epoch. This rapid decrease in model loss is most likely due to the use of clean synthetic data for training.
 
 ![192175419-b0165a90-c562-46b0-88c2-dc65dd6901bf](https://github.com/user-attachments/assets/f6ded2d5-281e-4270-afc5-6f5bf7567a34)
